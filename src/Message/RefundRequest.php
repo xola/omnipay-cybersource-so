@@ -10,9 +10,9 @@ class RefundRequest extends AbstractRequest
     {
         $data = array(
             'ccCreditService_run' => 'true',
-            'ccCreditService_captureRequestID' => $this->getTransactionId(),
+            'ccCreditService_captureRequestID' => $this->getTransactionReference(),
             'merchantID' => $this->getMerchantId(),
-            'merchantReferenceCode' => $this->getTransactionReference(),
+            'merchantReferenceCode' => $this->getTransactionId(),
             'purchaseTotals_currency' => $this->getCurrency(),
             'purchaseTotals_grandTotalAmount' => $this->getAmount()
         );

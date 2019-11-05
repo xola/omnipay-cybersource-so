@@ -10,9 +10,9 @@ class CaptureRequest extends AbstractRequest
     {
         $data = array(
             'ccCaptureService_run' => 'true',
-            'ccCaptureService_authRequestID' => $this->getTransactionId(),
+            'ccCaptureService_authRequestID' => $this->getTransactionReference(),
             'merchantID' => $this->getMerchantId(),
-            'merchantReferenceCode' => $this->getTransactionReference(),
+            'merchantReferenceCode' => $this->getTransactionId(),
             'purchaseTotals_currency' => $this->getCurrency(),
             'purchaseTotals_grandTotalAmount' => $this->getAmount()
         );

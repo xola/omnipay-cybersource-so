@@ -3,6 +3,7 @@
 namespace Omnipay\CyberSourceSimpleOrder\Message;
 
 use CybsClient;
+use Omnipay\Common\Exception\InvalidRequestException;
 
 abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 {
@@ -51,11 +52,15 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
             $this->getApiHosts()
         );
 
-        $client = new CybsClient(array(), $options, true);
-        $requestNvp = $this->arrayToNvp($data);
-        $reply = $client->runTransaction($requestNvp);
+        try {
+            $client = new CybsClient(array(), $options, true);
+            $requestNvp = $this->arrayToNvp($data);
+            $reply = $client->runTransaction($requestNvp);
 
-        return $this->response = new Response($this, $reply);
+            return $this->response = new Response($this, $reply);
+        } catch (\Exception $e) {
+            throw new InvalidRequestException($e->getMessage());
+        }
     }
 
     protected function getResourcePath()

@@ -12,7 +12,7 @@ class PurchaseRequest extends AbstractRequest
             'ccAuthService_run' => 'true',
             'ccCaptureService_run' => 'true',
             'merchantID' => $this->getMerchantId(),
-            'merchantReferenceCode' => $this->getTransactionReference(),
+            'merchantReferenceCode' => $this->getTransactionId(),
             'recurringSubscriptionInfo_subscriptionID' => $this->getToken(),
             'purchaseTotals_currency' => $this->getCurrency(),
             'purchaseTotals_grandTotalAmount' => $this->getAmount()
