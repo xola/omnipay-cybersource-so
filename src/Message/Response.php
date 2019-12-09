@@ -143,6 +143,18 @@ class Response extends AbstractResponse
         return $this->nvpToArray(parent::getData());
     }
 
+    public function getTransactionReference()
+    {
+        $transRefKeys = array(
+            'requestID'
+        );
+        foreach ($transRefKeys as $key) {
+            if (isset($this->getData()->$key)) {
+                return $this->getData()->$key;
+            }
+        }
+    }
+
     private function nvpToArray($response)
     {
         $arr = preg_split('/\\n/', $response);
