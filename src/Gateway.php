@@ -1,17 +1,17 @@
 <?php
 
-
 namespace Omnipay\CyberSourceSimpleOrder;
 
-
 use Omnipay\Common\AbstractGateway;
+use Omnipay\Common\Message\AbstractRequest;
+use Omnipay\Common\Message\RequestInterface;
 
 /**
- * @method \Omnipay\Common\Message\RequestInterface completeAuthorize(array $options = array())
- * @method \Omnipay\Common\Message\RequestInterface completePurchase(array $options = array())
- * @method \Omnipay\Common\Message\RequestInterface createCard(array $options = array())
- * @method \Omnipay\Common\Message\RequestInterface updateCard(array $options = array())
- * @method \Omnipay\Common\Message\RequestInterface deleteCard(array $options = array())
+ * @method RequestInterface completeAuthorize(array $options = array())
+ * @method RequestInterface completePurchase(array $options = array())
+ * @method RequestInterface createCard(array $options = array())
+ * @method RequestInterface updateCard(array $options = array())
+ * @method RequestInterface deleteCard(array $options = array())
  */
 class Gateway extends AbstractGateway
 {
@@ -58,7 +58,7 @@ class Gateway extends AbstractGateway
     /**
      * Processes a payment authorization for a tokenized card payment.
      * @param array $parameters
-     * @return \Omnipay\Common\Message\AbstractRequest|\Omnipay\Common\Message\RequestInterface
+     * @return AbstractRequest|RequestInterface
      */
     public function authorize(array $parameters = array())
     {
@@ -68,7 +68,7 @@ class Gateway extends AbstractGateway
     /**
      * Processes a capture on a payment authorization.
      * @param array $parameters
-     * @return \Omnipay\Common\Message\AbstractRequest|\Omnipay\Common\Message\RequestInterface
+     * @return AbstractRequest|RequestInterface
      */
     public function capture(array $parameters = array())
     {
@@ -78,7 +78,7 @@ class Gateway extends AbstractGateway
     /**
      * Processes a payment to be authorized and captured at the same time.
      * @param array $parameters
-     * @return \Omnipay\Common\Message\AbstractRequest|\Omnipay\Common\Message\RequestInterface
+     * @return AbstractRequest|RequestInterface
      */
     public function purchase(array $parameters = array())
     {
@@ -88,7 +88,7 @@ class Gateway extends AbstractGateway
     /**
      * Process a Void request for a previous Capture or Credit (Refund) request.
      * @param array $parameters
-     * @return \Omnipay\Common\Message\AbstractRequest|\Omnipay\Common\Message\RequestInterface
+     * @return AbstractRequest|RequestInterface
      */
     public function void(array $parameters = array())
     {
@@ -98,7 +98,7 @@ class Gateway extends AbstractGateway
     /**
      * Process a Credit (Refund) for a submitted payment.
      * @param array $parameters
-     * @return \Omnipay\Common\Message\AbstractRequest|\Omnipay\Common\Message\RequestInterface
+     * @return AbstractRequest|RequestInterface
      */
     public function refund(array $parameters = array())
     {

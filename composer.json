@@ -1,19 +1,20 @@
 {
     "name": "medlmobileenterprises/omnipay-cybersource-so",
+    "description": "CyberSource Simple Order gateway for the Omnipay payment processing library",
+    "license": "MIT",
     "type": "library",
     "require": {
-        "omnipay/common": "^2.0",
-        "ext-json": "*",
-        "cybersource/sdk-php": "^1.0"
+        "omnipay/common": "^3",
+        "cybersource/sdk-php": "^1"
     },
     "require-dev": {
-        "omnipay/tests": "^2.0",
-        "squizlabs/php_codesniffer": "^1",
-        "phpunit/phpunit": "^3"
+        "omnipay/tests": "^3",
+        "squizlabs/php_codesniffer": "^3"
     },
-    "license": "MIT",
     "autoload": {
-        "psr-4": { "Omnipay\\CyberSourceSimpleOrder\\" : "src/" }
+        "psr-4": {
+            "Omnipay\\CyberSourceSimpleOrder\\": "src/"
+        }
     },
     "authors": [
         {
